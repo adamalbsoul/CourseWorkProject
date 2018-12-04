@@ -157,7 +157,7 @@ void cGame::render(SDL_Window* theSDLWND, SDL_Renderer* theRenderer)
 	// Lab 7 code goes here
 	
 	// render the rocket
-	theRocket.render(theRenderer, &theRocket.getSpriteDimensions(), &theRocket.getSpritePos(), theRocket.getSpriteRotAngle(), &theRocket.getSpriteCentre(), theRocket.getSpriteScale());
+	theRocket.render(theRenderer, &theRocket.getSpriteDimensions(), &theRocket.getSpritePos(), theRocket.getSpriteRotAngle()-90, &theRocket.getSpriteCentre(), theRocket.getSpriteScale());
 	SDL_RenderPresent(theRenderer);
 }
 
