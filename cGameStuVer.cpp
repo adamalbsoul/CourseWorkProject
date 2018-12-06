@@ -57,24 +57,25 @@ void cGame::initialise(SDL_Window* theSDLWND, SDL_Renderer* theRenderer)
 
 	// Store the textures
 	textureName = { "asteroid1", "asteroid2", "asteroid3", "asteroid4", "photon","theRocket","theBackground", "explosion"};
-	texturesToUse = { "Images\\Sprites\\asteroid1.png", "Images\\Sprites\\asteroid2.png", "Images\\Sprites\\asteroid3.png", "Images\\Sprites\\asteroid4.png", "Images\\Sprites\\Photon64x32.png", "Images\\Sprites\\rocketSprite.png", "Images\\Bkg\\starscape1024x768.png", "Images\\Sprites\\explosion.png" };
+	texturesToUse = { "Images\\Sprites\\asteroid1.png", "Images\\Sprites\\asteroid2.png", "Images\\Sprites\\asteroid3.png", "Images\\Sprites\\asteroid4.png", "Images\\Sprites\\Photon64x32.png", "Images\\Sprites\\rocketSprite.png", "Images\\Bkg\\starscape1024x768.png", "Images\\Sprites\\explosion.png" }; //changed the textures to set the medieval theme
 	for (int tCount = 0; tCount < (int)textureName.size(); tCount++)
 	{	
 		theTextureMgr->addTexture(textureName[tCount], texturesToUse[tCount]);
 	}
 	// Create textures for Game Dialogue (text)
-	fontList = { "digital", "spaceAge" };
-	fontsToUse = { "Fonts/digital-7.ttf", "Fonts/space age.ttf" };
+	fontList = { "digital", "scribish" }; // changed the font to fit the theme
+	fontsToUse = { "Fonts/digital-7.ttf", "Fonts/scribish.ttf" }; // changed the font to fit the theme
 	for (int fonts = 0; fonts < (int)fontList.size(); fonts++)
 	{
 		theFontMgr->addFont(fontList[fonts], fontsToUse[fonts], 36);
 	}
-	gameTextList = { "Asteroids", "Score : "};
+	gameTextList = { "Adam Al-Bsoul", "Score : "}; // changed the text to say my name
 	strScore = gameTextList[1];
 	strScore += to_string(theScore).c_str();
-	
-	theTextureMgr->addTexture("Title", theFontMgr->getFont("spaceAge")->createTextTexture(theRenderer, gameTextList[0], textType::solid, { 0, 255, 0, 255 }, { 0, 0, 0, 0 }));
-	theTextureMgr->addTexture("theScore", theFontMgr->getFont("spaceAge")->createTextTexture(theRenderer, strScore.c_str(), textType::solid, { 0, 255, 0, 255 }, { 0, 0, 0, 0 }));
+	//	SDL_Texture* createTextTexture(SDL_Renderer* theRenderer, LPCSTR text, textType txtType, SDL_Color txtColour, SDL_Color txtBkgd);
+
+	theTextureMgr->addTexture("Title", theFontMgr->getFont("scribish")->createTextTexture(theRenderer, gameTextList[0], textType::solid, { 255, 255, 255, 255 }, { 255, 255, 255, 255 })); // changed the font to fit the theme; changed the font colour from green to white so that it can be easily read since the background is green
+	theTextureMgr->addTexture("theScore", theFontMgr->getFont("scribish")->createTextTexture(theRenderer, strScore.c_str(), textType::solid, { 255, 255, 255, 255 }, { 255, 255, 255, 255 })); // changed the font to fit the theme
 
 	// Load game sounds
 	soundList = { "theme", "shot", "explosion" };
@@ -157,7 +158,7 @@ void cGame::render(SDL_Window* theSDLWND, SDL_Renderer* theRenderer)
 	// Lab 7 code goes here
 	
 	// render the rocket
-	theRocket.render(theRenderer, &theRocket.getSpriteDimensions(), &theRocket.getSpritePos(), theRocket.getSpriteRotAngle()-90, &theRocket.getSpriteCentre(), theRocket.getSpriteScale());
+	theRocket.render(theRenderer, &theRocket.getSpriteDimensions(), &theRocket.getSpritePos(), theRocket.getSpriteRotAngle(), &theRocket.getSpriteCentre(), theRocket.getSpriteScale());
 	SDL_RenderPresent(theRenderer);
 }
 
