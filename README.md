@@ -15,3 +15,5 @@
 - End game screen
 - Score counter
 - Continuous asteroid spawning
+
+![marking](marking.png)
