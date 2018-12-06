@@ -5,7 +5,7 @@
 
 - Replace: 
 - Sounds✔️
-- sprites(asteroids, bullet)
+- sprites(asteroids, bullet)✔️
 - Background✔️
 - Fonts✔️ 
 - Text✔️
