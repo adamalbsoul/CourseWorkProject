@@ -237,7 +237,7 @@ void cGame::update(double deltaTime)
 				int index = theExplosions.size()-1;
 				theExplosions[index]->setSpriteTranslation({ 0, 0 });
 				theExplosions[index]->setActive(true);
-				theExplosions[index]->setNoFrames(16);
+				theExplosions[index]->setNoFrames(5); // change it to fit the skull death animation which has less frames than the original one
 				theExplosions[index]->setTexture(theTextureMgr->getTexture("explosion"));
 				theExplosions[index]->setSpriteDimensions(theTextureMgr->getTexture("explosion")->getTWidth()/ theExplosions[index]->getNoFrames(), theTextureMgr->getTexture("explosion")->getTHeight());
 				theExplosions[index]->setSpritePos({ (*asteroidIterator)->getSpritePos().x + (int)((*asteroidIterator)->getSpritePos().w/2), (*asteroidIterator)->getSpritePos().y + (int)((*asteroidIterator)->getSpritePos().h / 2) });
@@ -315,13 +315,13 @@ bool cGame::getInput(bool theLoop)
 				break;*/
 				case SDLK_RIGHT:
 				{
-					theRocket.setSpriteRotAngle(theRocket.getSpriteRotAngle() +10); //changed to from 5 to 10 so that the aiming can be done quicker
+					theRocket.setSpriteRotAngle(theRocket.getSpriteRotAngle() +10); //changed from 5 to 10 so that the aiming can be done quicker
 				}
 				break;
 
 				case SDLK_LEFT:
 				{
-					theRocket.setSpriteRotAngle(theRocket.getSpriteRotAngle() - 10); //changed to from 5 to 10 so that the aiming can be done quicker
+					theRocket.setSpriteRotAngle(theRocket.getSpriteRotAngle() - 10); //changed from 5 to 10 so that the aiming can be done quicker
 				}
 				break;
 
@@ -329,12 +329,12 @@ bool cGame::getInput(bool theLoop)
 				{
 					theBullets.push_back(new cBullet);
 					int numBullets = theBullets.size() - 1;
-					theBullets[numBullets]->setSpritePos({ theRocket.getBoundingRect().x + theRocket.getSpriteCentre().x+ 50, theRocket.getBoundingRect().y + theRocket.getSpriteCentre().y });
-					theBullets[numBullets]->setSpriteTranslation({ 50, 50 });
+					theBullets[numBullets]->setSpritePos({ theRocket.getBoundingRect().x + theRocket.getSpriteCentre().x + 50, theRocket.getBoundingRect().y + theRocket.getSpriteCentre().y });
+					theBullets[numBullets]->setSpriteTranslation({ 900, 50 }); //changed the first value from 50 to 900 so that the bullet spawns in the direction of where the player is pointing at
 					theBullets[numBullets]->setTexture(theTextureMgr->getTexture("photon"));
 					theBullets[numBullets]->setSpriteDimensions(theTextureMgr->getTexture("photon")->getTWidth(), theTextureMgr->getTexture("photon")->getTHeight());
 					theBullets[numBullets]->setBulletVelocity(50);
-					theBullets[numBullets]->setSpriteRotAngle(theRocket.getSpriteRotAngle()-1800); // subtract 1800 to make it spawn up
+					theBullets[numBullets]->setSpriteRotAngle(theRocket.getSpriteRotAngle() - 1800); // subtract 1800 to make it spawn up
 					theBullets[numBullets]->setActive(true);
 					cout << "Bullet added to Vector at position - x: " << theRocket.getBoundingRect().x << " y: " << theRocket.getBoundingRect().y << endl;
 				}
