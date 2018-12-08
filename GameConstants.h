@@ -16,6 +16,9 @@
 // Sound loading library
 #include <SDL_mixer.h>
 
+// Game controller library
+#include<SDL_gamecontroller.h>
+
 // Maths functions
 #include <math.h>
 constexpr auto PI = 3.14159265;

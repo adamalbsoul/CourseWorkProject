@@ -40,6 +40,12 @@ private:
 	time_point< high_resolution_clock > m_CurrentTime;
 	duration< double > deltaTime;
 
+	/* Let the computer pick a random number */
+	random_device rd;    // non-deterministic engine 
+	mt19937 gen{ rd() }; // deterministic engine. For most common uses, std::mersenne_twister_engine, fast and high-quality.
+	uniform_int_distribution<> AsteroidDis{ 1, 5 };
+	uniform_int_distribution<> AsteroidTextDis{ 0, 3 }; //changed the value from 3 to 4 to include just the asteroids and not the photon
+
 	// Sprites for displaying background and rocket textures
 	cSprite spriteBkgd;
 	cRocket theRocket;
@@ -66,6 +72,9 @@ private:
 	int renderWidth, renderHeight;
 	int theScore;
 	string strScore;
+	bool updateScore = false; //bool that is set to true when there is a collision and helps with updating the score counter
+
+	int frames = 1; //frame counter
 };
 
 #endif
