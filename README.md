@@ -1,7 +1,7 @@
 # CourseWorkProject👍
 TO DO LIST📌
 
-- Release Version🚀
+- Release Version🚀✔️
 -Development Blog ✔️
 -Wiki ✔️
 -Documentation ✔️
