@@ -2,11 +2,11 @@
 TO DO LIST📌
 
 - Release Version🚀✔️
--Development Blog ✔️
--Wiki ✔️
--Documentation ✔️
--Demo video ✔️
--branch called GP1-Submission ✔️
+- Development Blog ✔️
+- Wiki ✔️
+- Documentation ✔️
+- Demo video ✔️
+- Branch called GP1-Submission ✔️
 
 - Bullet has to fire from cannons pos ✔️
 
